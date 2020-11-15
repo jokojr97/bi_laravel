@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>@yield('title')</title>
+  <meta content="@yield('metadeskription')" name="descriptison">
+  <meta content="@yield('metakeywords')" name="keywords">
+
+  <!-- Favicons -->
+  <link href="/img/home/icon-kecil.png" rel="icon">
+  <link href="@yield('thumbnail')" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- fontawesome -->
+  <link rel="stylesheet" href="/admin/plugins/fontawesome-free/css/all.min.css">
+  <!-- ionicon -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+  <!-- Vendor CSS Files -->
+  <link href="/vendor/home/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/vendor/home/icofont/icofont.min.css" rel="stylesheet">
+  <link href="/vendor/home/remixicon/remixicon.css" rel="stylesheet">
+  <link href="/vendor/home/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/vendor/home/owl.carousel//assets/home/owl.carousel.min.css" rel="stylesheet">
+  <link href="/vendor/home/venobox/venobox.css" rel="stylesheet">
+  <link href="/vendor/home/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="/css/home/style.css" rel="stylesheet">
+  <!-- =======================================================
+  * Template Name: Vesperr - v2.0.0
+  * Template URL: https://bootstrapmade.com/vesperr-free-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center bg-white">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo mr-auto">
+        <h1 class="text-light"><a href="/"><img src="/img/home/logo.png" style="height: 300px"></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="/img/home/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav class="nav-menu d-none d-lg-block">
+        @include('page._partials.menu')
+      </nav><!-- .nav-menu -->
+    </div>
+  </header><!-- End Header -->
+  <!-- <div style="margin-bottom: 30px">&nbsp;</div> -->
+
+  @yield('container')
+
+  <!-- ======= Contact Section ======= -->
+  <section id="contact" class="contact bg-dark text-white">
+    <div class="kode_newsletter_bg" style="margin-bottom: 30px;"  data-aos="fade-up">
+      <div class="container">
+          <div class="kode_newsletter_des" style="margin-right: 20px">
+              <h5>Subcribe Our</h5>
+              <h3 style="margin-top: 0px;">Newsletter</h3>
+          </div>
+          <div class="kode_newsletter_form">
+              <form>
+                  <input class="placeholder2" type="text" placeholder="Enter your Place Holder Here">
+                  <button class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+              </form>
+          </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="section-title" data-aos="fade-up">
+        <!-- <h2 class="text-white">Profil</h2> -->
+      </div>
+      <div class="form-row">
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="contact-about">
+            <center>              
+              <h3 class="text-white mb-3"><img src="/img/home/logo-putih.png" style="width: 300px"></h3>
+            </center>
+            <div class="social-links">
+              <center>
+                <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
+                <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
+                <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
+                <a href="#" class="linkedin"><i class="icofont-linkedin"></i></a>
+              </center>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="200">
+          <div class="info">
+            <div>
+              <i class="ri-map-pin-line text-white"></i>
+              <p class="text-white">Jl. MH. Tamrin <br>Kabupaten Bojoengoro</p>
+            </div>
+            <div>
+              <i class="ri-mail-send-line text-white"></i>
+              <p class="text-white">nasdembojonegoro@gmail.com</p>
+            </div>
+            <div>
+              <i class="ri-phone-line text-white"></i>
+              <p class="text-white">0353 888 557</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5 col-md-12" data-aos="fade-up" data-aos-delay="300">
+          <h4 class="text-white" style="margin:0px">Cari Kader</h4>
+          <hr style="border: 2px orange solid;margin-top: 1px">
+          @if(session('success'))
+          <div class="alert alert-success" role="alert">
+            {{ session('success') }}
+          </div>
+          @endif
+          @if(session('failed'))
+          <div class="alert alert-danger" role="alert">
+            {{ session('failed') }}
+          </div>
+          @endif
+          <form action="/kader" method="POST">
+            @csrf
+            <!-- <input type="hidden" name="role" value="1"> -->
+            <div class="form-group">
+              <input type="text" name="name" class="form-control" id="name" placeholder="Nama Kader"/>
+            </div>
+            <div class="form-group">
+              <select name="unsur" class="form-control">
+                <option value="dpd">Kader di DPD</option>
+                <option value="dpp">Kader di DPP</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <input type="text" name="lokasi" class="form-control" id="address" placeholder="Lokasi" value="Kabupaten Bojonegoro" />
+            </div>
+            <div class="text-center float-right"><button type="submit" class="btn btn-primary text-white"><i class="fas fa-search"></i> Cari Kader</button></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Contact Section -->
+
+</main>
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="row d-flex align-items-center">
+        <div class="col-lg-6 text-lg-left text-center">
+          <div class="copyright">
+            &copy; Copyright <strong>Nasdem</strong>. All Rights Reserved
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
+            <a href="/">Home</a>
+            <a href="/news">Berita Terbaru</a>
+            <a href="/typekegiatan">Kegiatan</a>
+            <a href="/type/opini">Opini</a>
+            <a href="/sejarah">Tentang Kami</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+  <!-- Vendor JS Files -->
+  <script src="/vendor/home/jquery/jquery.min.js"></script>
+  <script src="/vendor/home/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/vendor/home/jquery.easing/jquery.easing.min.js"></script>
+  <script src="/vendor/home/php-email-form/validate.js"></script>
+  <script src="/vendor/home/waypoints/jquery.waypoints.min.js"></script>
+  <script src="/vendor/home/counterup/counterup.min.js"></script>
+  <script src="/vendor/home/owl.carousel/owl.carousel.min.js"></script>
+  <script src="/vendor/home/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/vendor/home/venobox/venobox.min.js"></script>
+  <script src="/vendor/home/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="/js/home/main.js"></script>
+  <script type="text/javascript">
+    
+  $(document).ready(function(){
+    // $("#search-wrapper").hide();
+    var i=0;
+    $("#search").click(function(){
+      if (i==1) {
+        $("#search-wrapper").hide();
+        i=0;
+      }else {
+        $("#search-wrapper").show();
+        i=1;
+      }
+    });
+  });
+  </script>
+
+  @yield('script_tambahan');
+</body>
+
+</html>
