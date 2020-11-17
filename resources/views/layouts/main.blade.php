@@ -250,5 +250,6 @@
             });
         });
     </script>
+    @yield('script_tambahan')
 </body>
 </html>

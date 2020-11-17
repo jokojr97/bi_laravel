@@ -2,16 +2,17 @@
     <div class="col-lg-4"><div class="blog_right_sidebar">
         <!-- sidebar search form -->
         <aside class="single_sidebar_widget search_widget">
-            <form action="#">
+            <form action="{{ route('searchdata') }}" method="post">
+                @csrf
                 <div class="form-group">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder='Search Keyword'onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Keyword'">
+                        <input type="text" class="form-control" placeholder='Search Keyword'onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Keyword'" name='search'>
                         <div class="input-group-append">
-                            <button class="btns" type="button"><i class="ti-search"></i></button>
+                            <button class="btns" type="button" id="btnsearch"><i class="ti-search"></i></button>
                         </div>
                     </div>
                 </div>
-                <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn" type="submit">Search</button>
+                <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn" type="submit" id="searchbtn" onclick="myfunction()">Search</button>
             </form>
         </aside>
         <!-- end search form -->
@@ -185,3 +186,14 @@
         <!-- end subcribe newsletter -->
     </div>
     <!-- end right sidebar -->
+
+    @section('script_tambahan')
+    <script>
+        // console.log('joko riyadi');
+        function myfunction(){
+            $('#searchbtn').click(function(){
+                $('#btnsearch').click();
+            }).
+        }
+    </script>
+    @endsection

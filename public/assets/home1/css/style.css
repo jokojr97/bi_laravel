@@ -2365,6 +2365,11 @@ to{-webkit-transform:rotate(360deg)}
 
 .postdetail blockquote {background:#fff;padding:15px 15px 15px 20px;border-left:2px solid}
 
+.img-berita {
+	height: 300px;
+	object-fit: cover;
+}
+
 .postdetail blockquote {
 	background:rgba(130,139,178,0.1);padding:15px;line-height:1.733;color:#888888;font-style:italic;margin-top:25px;margin-bottom:25px;margin-left:35px;
 }

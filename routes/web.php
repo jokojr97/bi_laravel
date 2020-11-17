@@ -19,12 +19,12 @@ use Illuminate\Support\Facades\Route;
 
 // pages route
 Route::get('/', 'PagesController@home');
-Route::get('/news', 'PagesController@news');
+Route::get('/berita', 'PagesController@news');
 Route::get('/post/{news}', 'PagesController@preview');
 Route::get('/page/{page}', 'PagesController@page');
 Route::get('/category/{category}', 'PagesController@category');
 Route::get('/type/{type}', 'PagesController@type');
-Route::get('/search', 'PagesController@search');
+Route::post('/search', 'PagesController@search')->name('searchdata');
 Route::post('/contact', 'PagesController@contactstore');
 Route::get('/contactus', 'PagesController@contactus');
 Route::get('/post/{news}', 'PagesController@preview');

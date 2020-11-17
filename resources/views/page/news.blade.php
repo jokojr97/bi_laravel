@@ -4,7 +4,19 @@ function limit_words($string, $word_limit){
     return implode(" ",array_splice($words,0,$word_limit));
 }
 
+function get_bulan($date){
+  $tgl = substr($date, 5, 2);
+  $monthNum = $tgl;
+  // Create date object to store the DateTime format 
+  $dateObj = DateTime::createFromFormat('!m', $monthNum);
+  // Store the month name to variable 
+  $monthName = $dateObj->format('F');   
+  $monthName = substr($monthName, 0, 3);
+  // Display output 
+  return $monthName; 
+}
 ?>
+
 @extends ('layouts/main')
 
 @section('title', 'Berita - Bojonegoro Institute')
@@ -46,31 +58,33 @@ function limit_words($string, $word_limit){
                       <div class="blog_details">
                         <!-- isi post -->
                         <div class="row">
-
-                          <?php for($i=0;$i<=9;$i++){ ?>
-                            <div class="col-md-6">
-                              <article class="blog_item">
-                                <div class="blog_item_img">
-                                    <img class="card-img rounded-0" src="/assets/home1/img/blog/single_blog_1.png" alt="">
-                                    <a href="#" class="blog_item_date">
-                                        <h3>15</h3>
-                                        <p>Jan</p>
-                                    </a>
-                                </div>
-                                <div class="blog_details">
-                                    <a class="d-inline-block" href="blog_details.html">
-                                        <h2 class="blog-head" style="color: #2d2d2d;">Google inks pact for new 35-storey office</h2>
-                                    </a>
-                                    <p>That dominion stars lights dominion divide years for fourth have don't stars is that
-                                    he earth it first without heaven in place seed it second morning saying.</p>
-                                    <ul class="blog-info-link">
-                                        <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
-                                        <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
-                                    </ul>
-                                </div>
-                              </article>    
-                            </div>
-                          <?php } ?>
+                          @if($ada == true)                          
+                            @foreach($berita as $result)
+                              <div class="col-md-6">
+                                <article class="blog_item">
+                                  <div class="blog_item_img">
+                                      <img class="card-img rounded-0 img-berita" src="/uploads/posts/{{$result->feature_image}}" alt="">
+                                      <a href="#" class="blog_item_date">
+                                          <h3>{{ substr($result->published_at, 8, 2) }}</h3>
+                                          <p>{{ get_bulan($result->published_at) }}</p>
+                                      </a>
+                                  </div>
+                                  <div class="blog_details">
+                                      <a class="d-inline-block" href="/post/{{$result->slug}}">
+                                          <h2 class="blog-head" style="color: #2d2d2d;">{{$result->title}}</h2>
+                                      </a>
+                                      <p>{{$result->exercipt}}</p>
+                                      <ul class="blog-info-link">
+                                          <li><a href="#"><i class="fa fa-user"></i> {{$result->category->name}}</a></li>
+                                          <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
+                                      </ul>
+                                  </div>
+                                </article>    
+                              </div>
+                            @endforeach
+                          @else
+                            <h1>Berita Belum tersedia</h1>
+                          @endif
                         </div>
                               <!-- end isi post -->
                       </div>  
@@ -140,7 +154,7 @@ function limit_words($string, $word_limit){
             </div>
         </div>
     </div>
-    
+
     </div>    
     @include('page._partials.sidebar')
     

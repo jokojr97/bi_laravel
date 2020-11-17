@@ -185,7 +185,7 @@ Highcharts.chart('piechart1', {
             sliced: true,
             selected: true
         }, {
-            name: 'Nasdem',
+            name: 'Bior',
             y: 11
         }, {
             name: 'Kader',
