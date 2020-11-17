@@ -26,94 +26,58 @@ if ($post->feature_image) {
 }
 ?>
 
-<!-- header -->
-<section id="breadcrumbs" class="breadcrumbs">
-  <div>    
-    <img src="/uploads/posts/<?= $post->feature_image ?>" class="d-block w-100 img-header" style="z-index: 0">
-  </div>
-</section>
-
-<section class="judul-berita" id="judul">    
-  <div class="container" style="z-index: 1">      
-    <div class="form-row">
-      <div class="col-md-10 offset-md-1">           
-      <center>
-        <a href="#" style="color: white;" class="category-news"><h5 class="news-category"><span style="font-weight: 1000;color: #f2ec30">{{ $post->category->name }}</span> <span>•</span> <span><?= $pub ?></span></h5></a>
-        <h2 class="news-title">{{ $post->title }}</h2>        
-        <div class="share-links">
-          <a href="http://twitter.com/share?url={{url('/') }}/post/{{ $post->slug }}" class="twitter text-white mr-1 bg-info rounded-circle pr-1 pl-1" target="_blank"><i class="icofont-twitter"></i></a>
-          <a href="http://www.facebook.com/sharer.php?u={{url('/') }}/post/{{ $post->slug }}" class="facebook text-white mr-1 bg-primary rounded-circle pr-1 pl-1" target="_blank"><i class="icofont-facebook"></i></a>
-          <a href="https://api.whatsapp.com/send?text={{url('/') }}/post/{{ $post->slug }}" class="text-white mr-1 bg-success rounded-circle pr-1 pl-1"  data-action="share/whatsapp/share" target="_blank"><i class="fab fa-whatsapp"></i></a>
-          <a href="https://plus.google.com/share?url={{url('/') }}/post/{{ $post->slug }}" class="google text-white mr-1 bg-danger rounded-circle pr-1 pl-1" target="_blank"><i class="icofont-google-plus"></i></a>
-        </div>
-      </center>
-      </div>  
-    </div>
-  </div>
-</section>
-<!-- end header -->
-<main id="main">
-  <!-- ======= Detail News Section ======= -->
-  <section id="news-details" class="news-details">
+<div class="slider-area" style="background-color:rgb(31, 30, 30)">
+  <div class="slider-height2 d-flex align-items-center">
     <div class="container">
-      <div class="form-row">
-        <div class="col-md-10 offset-md-1">
-          <!-- <center><h2 class="news-title">Corruption and Corona Virus</h2></center>            -->
-          <div class="p-3 kode_news_detail">                
-            <?php  
-              $cont = $post->content;
-              echo $cont;
-            ?>
-          </div>
-          <p><strong>Share :</strong></p>
-          <div class="share-links">
-            <a href="http://twitter.com/share?url={{url('/') }}/post/{{ $post->slug }}" class="twitter text-white bg-info pr-2 pl-2 pt-1 pb-1" target="_blank"><i class="icofont-twitter"></i></a>
-            <a href="http://www.facebook.com/sharer.php?u={{url('/') }}/post/{{ $post->slug }}" class="facebook text-white bg-primary pr-2 pl-2 pt-1 pb-1" target="_blank"><i class="icofont-facebook"></i></a>
-            <a href="https://api.whatsapp.com/send?text={{url('/') }}/post/{{ $post->slug }}" class="text-white bg-success pr-2 pl-2 pt-1 pb-1"  data-action="share/whatsapp/share" target="_blank"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://plus.google.com/share?url={{url('/') }}/post/{{ $post->slug }}" class="google text-white bg-danger pr-2 pl-2 pt-1 pb-1" target="_blank"><i class="icofont-google-plus"></i></a>
-          </div>
+    <div class="row">
+      <div class="col-xl-8">
+        <div class="hero-cap hero-cap2 pt-70">
+            <h2 style="color:white">{{ $post->title }}</h2>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                  <li class="breadcrumb-item"><a href="index.html">Post</a></li>
+                  <li class="breadcrumb-item"><a href="index.html">{{ $post->title }}</a></li>
+              </ol>
+            </nav>
         </div>
       </div>
     </div>
-  </section>
-  <!-- End Detail News Section -->
-
-  <!-- ======= Latest Section ======= -->
-  <section id="news" class="news bg-light">
+  </div>
+</div>
+<!-- Hero End -->
+</div>
+  <!--? Blog Area Start -->
+  <section class="blog_area single-post-area section-padding">
     <div class="container">
-      <div class="section-title" data-aos="fade-up">
-        <h2>Latest</h2>
-      </div>
-      <div class="form-row" style="margin-top: -30px">
-        <div class="d-flex align-items-stretch">
-          <div class="news">              
-            <div class="form-row p-3">    
-              @foreach ($posts as $result)
-
-              @php              
-              $pub = substr($result->published_at, 0,10);
-              $pub = date('F, Y', strtotime($pub));
-              $pub = str_replace(',', '', $pub);
-              @endphp
-
-              <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="card mt-3">
-                  @if ($result->feature_image)
-                  <a href="/post/{{ $result->slug}}"><img src="/uploads/posts/{{ $result->feature_image}}" class="card-img-top" alt="..."></a>
-                  @endif
-                  <div class="card-body" style="border-bottom: 5px solid #1f3983">
-                    <p class="text-secondary" style="font-size: 12px;margin-bottom: 2px"><i class="fas fa-user"> Admin</i> &nbsp; <i class="fas fa-clock"></i> {{ $pub }}</p>
-                    <a class="card-title text-capitalize h5" href="/post/{{ $result->slug}}"><b><p style="font-size: 14px;"><?= strtolower($result->title) ?></p></b></a>
-                  </div>
-                </div>   
-              </div>  
-              @endforeach
+      <div class="row">
+        <div class="col-lg-8 posts-list">
+          <div class="single-post">
+            <div class="feature-img">
+              <img class="img-fluid" src="/uploads/posts/{{$post->feature_image}}"  alt="" style="object-fit:cover;width:10000px">
             </div>
+            <div class="blog_details">
+              <!-- isi post -->
+              <h2>{{$post->title}}</h2>
+              <ul class="blog-info-link mt-3 mb-4">
+                <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
+                <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
+              </ul>
+              <div class="postdetail">
+              <?= $post->content ?>
+              </div>
+              <!-- end isi post -->
+            </div>  
           </div>
+          @include('page._partials.likeshare')
+          @include('page._partials.navigationblog')
         </div>
       </div>
-    </div>
-  </section>
-  <!-- End Latest Section -->
+  </div>
+    
+    @include('page._partials.author')
+    @include('page._partials.comment')
+    </div>    
+    @include('page._partials.sidebar')
 
 @endsection()

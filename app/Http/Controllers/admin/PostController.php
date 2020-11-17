@@ -153,7 +153,6 @@ class PostController extends Controller
             'title' => 'required',
             'content' => 'required',
             'category_id' => 'required',
-            'published_at' => 'required',
             'keyword' => 'required',
             'exercipt' => 'required',
         ]);

@@ -13,135 +13,135 @@ function limit_words($string, $word_limit){
 
 @section('container')
 
-<!-- header -->
-<section id="breadcrumbs" class="breadcrumbs" style="padding-top: 0;padding-bottom: 0">
-  <div class="container">
 
-    <div class="d-flex justify-content-between align-items-center pb-3">
-      <h5 style="margin-bottom: 0px">Berita</h5>
-      <ol>
-        <li><a href="index.html">Home</a></li>
-        <li>Berita</li>
-      </ol>
-    </div>
-
-  </div>
-</section><!-- End Breadcrumbs -->
-
-<!-- end header -->
-<main id="main">
-  <!-- ======= Detail News Section ======= -->
-
-  <section id="list" style="margin-top: -40px">
+<div class="slider-area" style="background-color:rgb(31, 30, 30)">
+    <div class="slider-height2 d-flex align-items-center">
     <div class="container">
-      <div class="row">
-        <div class="col-md-8" data-aos="fade-up" data-aos-delay="400">
-          <div class="bg-danger">
-            <div class="text-danger text-center bg-blues" style="border:8px solid orange">
-              <h2 style="padding: 10px;color: white">Berita Terbaru</h2>
-            </div>
-          </div>
-          @if($ada==true)
-          @foreach($post as $result)
-          <div class="form-row">
-            <div class="col-md-3 col-4 mt-2">
-              <div class="portfolio" style="background-color: #1f3983">
-                <div class="portfolio-wrap">
-                  @if ($result->feature_image)
-                  <a href="/post/{{ $result->slug}}"><img src="/uploads/posts/{{ $result->feature_image}}" class="pt-2 img-fluid img-news" alt="..."></a>
-                  @else
-                  <a href="/post/{{ $result->slug}}"><img src="/uploads/posts/AC_portfolio_1440x480.jpg" class="pt-2 img-fluid img-news" alt="..."></a>
-
-                  @endif
-                </div>
-              </div>
-            </div>
-            <div class="col-md-9 col-8 mt-3">                
-              <a href="/post/{{ $result->slug}}" class="mt-2 pt-3 text-capitalize"><p class=" text-title"><b><?= strtolower($result->title) ?></b></p></a>
-              <p class="card-text" style="font-size: 13px;margin-top: -10px">
-                <?php 
-                $pub = substr($result->published_at, 0,10);
-                $pub = date('F, Y', strtotime($pub));
-                $pub = str_replace(',', '', $pub);
-                echo "<b>".$pub." - </b>";
-                $cont = $result->content;
-                $cont = str_replace('<div class="bl_copy">', '', $cont);
-                $cont = str_replace('<p>', '', $cont);
-                echo limit_words($cont, 20); ?></p>
-              <a href="/category/{{ $result->category->slug }}" class="btn btn-sm btn-primary" style="background-color: #1f3983;margin-top: -10px">{{ $result->category->slug }}</a>
-            </div>   
-          </div>  
-          @endforeach
-          <div class="row">
-            <div class="col p-3">            
-              {{ $post->links() }}
-            </div>
-          </div>
-
-          @else
-          <h3>Belum Tersedia</h3>
-          @endif
+    <div class="row">
+        <div class="col-xl-8">
+        <div class="hero-cap hero-cap2 pt-70">
+            <h2 style="color:white">Berita</h2>
+            <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="index.html">Berita</a></li>
+            </ol>
+            </nav>
         </div>
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
-          <div class="container">
-          <div style="margin-left: -10px">
-            <h2>LATEST</h2>
-            <hr style="border: 3px solid orange;margin-top: -15px;margin-bottom: 0px">
-          </div>
-          <div class="row">
-            @foreach($latest as $result)
-            <div class="form-row">
-              <div class="col-md-5 col-4 mt-2">
-                <div class="portfolio" style="background-color: #1f3983">
-                  <div class="portfolio-wrap">
-                    @if ($result->feature_image)
-                    <a href="/post/{{ $result->slug}}"><img src="/uploads/posts/{{ $result->feature_image}}" class="img-fluid" alt="..."></a>
-                    @else
-                    <a href="/post/{{ $result->slug}}"><img src="/uploads/posts/AC_portfolio_1440x480.jpg" class="img-fluid" alt="..."></a>
-
-                    @endif
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-7 col-8 mt-3">                
-                <a href="/post/{{ $result->slug}}" class="pt-2 text-capitalize"><p style="line-height:1.2em;"><b><?php 
-                $title = strtolower($result->title);
-                $title = $title = substr($title, 0, 50);
-                echo $title;
-                ?>...</b></p></a>
-              </div>   
-            </div>  
-            @endforeach
-          </div>
-          <br>
-          <div class="row">
-            <table class="table table-hover" data-aos="fade-up" data-aos-delay="400">
-              <thead>
-                <tr class="text-center">
-                  <th><a href="#" class="h4 text-reds"><b>CATEGORY</b></a></th>
-                </tr>
-                @foreach($category as $hasil)
-                <tr>
-                  <th><a href="/category/{{ $hasil->slug }}" class="h6 text-reds text-capitalize"><b><?= strtolower($hasil->name) ?></b></a></th>
-                </tr>
-                @endforeach
-                <tr class="text-center">
-                  <th><a href="#" class="h4 text-reds"><b>MORE</b></a></th>
-                </tr>
-                @foreach($type as $hasil)
-                <tr>
-                  <th><a href="/type/{{ $hasil->slug }}" class="h6 text-reds text-capitalize"><b><?= strtolower($hasil->name) ?></b></a></th>
-                </tr>
-                @endforeach
-              </thead>
-            </table>
-          </div>
         </div>
-        </div>   
+    </div>
+    </div>
+    </div>
+    </div>
+    <!-- Hero End -->
+    <!--? Blog Area Start -->
+    <section class="blog_area single-post-area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 posts-list">
+                    <div class="single-post">
+                      <div class="feature-img">
+                          <!-- <img class="img-fluid" src="/assets/home1/img/blog/single_blog_1.png" alt=""> -->
+                      </div>
+                      <div class="blog_details">
+                        <!-- isi post -->
+                        <div class="row">
 
-      </div>
+                          <?php for($i=0;$i<=9;$i++){ ?>
+                            <div class="col-md-6">
+                              <article class="blog_item">
+                                <div class="blog_item_img">
+                                    <img class="card-img rounded-0" src="/assets/home1/img/blog/single_blog_1.png" alt="">
+                                    <a href="#" class="blog_item_date">
+                                        <h3>15</h3>
+                                        <p>Jan</p>
+                                    </a>
+                                </div>
+                                <div class="blog_details">
+                                    <a class="d-inline-block" href="blog_details.html">
+                                        <h2 class="blog-head" style="color: #2d2d2d;">Google inks pact for new 35-storey office</h2>
+                                    </a>
+                                    <p>That dominion stars lights dominion divide years for fourth have don't stars is that
+                                    he earth it first without heaven in place seed it second morning saying.</p>
+                                    <ul class="blog-info-link">
+                                        <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
+                                        <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
+                                    </ul>
+                                </div>
+                              </article>    
+                            </div>
+                          <?php } ?>
+                        </div>
+                              <!-- end isi post -->
+                      </div>  
+                </div>
+                <!-- like and share -->
+                <div class="navigation-top">
+                    <div class="d-sm-flex justify-content-between text-center">
+                        <p class="like-info"><span class="align-middle"><i class="fa fa-heart"></i></span> Lily and 4 people like this</p>
+                        
+                        <div class="col-sm-4 text-center my-2 my-sm-0">
+                        <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
+                    </div>
+
+                    <!-- share -->
+                    <ul class="social-icons">
+                        <li><a href="https://www.facebook.com/sai4ull"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
+                        <li><a href="#"><i class="fab fa-behance"></i></a></li>
+                    </ul>
+                    <!-- end share -->
+                </div>
+                <!-- end like and share -->
+
+                <!-- next and previouse post -->
+                <div class="navigation-area">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
+                            <div class="thumb">
+                                <a href="#">
+                                    <img class="img-fluid" src="/assets/home1/img/post/preview.png" alt="">
+                                </a>
+                            </div>
+                            
+                            <div class="arrow">
+                                <a href="#">
+                                    <span class="lnr text-white ti-arrow-left"></span>
+                                </a>
+                            </div>
+                        <div class="detials">
+                            <p>Prev Post</p>
+                            <a href="#">
+                            <h4 style="color: #2d2d2d;">Space The Final Frontier</h4>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
+                        <div class="detials">
+                            <p>Next Post</p>
+                            <a href="#">
+                                <h4 style="color: #2d2d2d;">Telescopes 101</h4>
+                            </a>
+                        </div>
+                        <div class="arrow">
+                            <a href="#">
+                                <span class="lnr text-white ti-arrow-right"></span>
+                            </a>
+                        </div>
+                        <div class="thumb">
+                            <a href="#">
+                            <img class="img-fluid" src="/assets/home1/img/post/next.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <!-- end next and previouse post -->
+            </div>
+        </div>
     </div>
     
-  </section>
-
+    </div>    
+    @include('page._partials.sidebar')
+    
 @endsection()

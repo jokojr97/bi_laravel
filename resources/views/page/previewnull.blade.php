@@ -3,127 +3,126 @@ function limit_words($string, $word_limit){
     $words = explode(" ",$string);
     return implode(" ",array_splice($words,0,$word_limit));
 }
+
 ?>
 @extends ('layouts/main')
 
-@section('title') - Bojonegoro Institute @endsection
-@section('metadeskription') - Bojonegoro Institute @endsection
-@section('metakeywords')- Bojonegoro Institute @endsection
-@section('thumbnail') @endsection
+@section('title', 'Not found - Bojonegoro Institute')
+@section('metadeskription', 'Bojonegoro Institute merupakan Bojonegoro institute, adalah organisasi masyarakat sipil atau Civil Society Organization (CSO) yang berdiri pada tanggal 20 Februari 2005. Dengan Akte Notaris Didiek wahju indarta, SH. No 208 Tahun 2005. Selanjutnya didaftarkan pada Badan Kesbanglinmas Bojonegoro pada tahun 2006.')
+@section('metakeywords', 'bojonegoro institute, bi, bojonegoro, institute, Bojonegoro Institute, Institute Bojonegoro')
 
 @section('container')
 
-<!-- header -->
-  <section id="breadcrumbs" class="breadcrumbs">
+
+<div class="slider-area" style="background-color:rgb(31, 30, 30)">
+    <div class="slider-height2 d-flex align-items-center">
     <div class="container">
-      <div class="d-flex justify-content-between align-items-center pb-3">
-        <h5 style="margin-bottom: 0px">Post not found</h5>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======= Latest Section ======= -->
-  <section id="news" class="news bg-light">
-    <div class="container">
-      <div class="section-title" data-aos="fade-up">
-        <h2>Latest</h2>
-      </div>
-      <div class="form-row" style="margin-top: -30px">
-        <div class="d-flex align-items-stretch">
-          <div class="news">              
-            <div class="form-row p-3">    
-              @foreach ($posts as $result)
-              <?php 
-              $jumpos = count($posts);
-              ?>
-              @if($jumpos%2==0)
-              @if($loop->iteration%2==1)
-
-              <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="card mt-3">
-                  @if ($result->feature_image)
-                  <a href="/post/{{ $result->slug}}"><img src="/uploads/posts/{{ $result->feature_image}}" class="card-img-top" alt="..."></a>
-                  @endif
-                  <div class="card-body">
-                    <a class="card-title text-capitalize h5" href="/post/{{ $result->slug}}"><b><?= strtolower($result->title) ?></b></a>
-                    <p class="card-text mt-2" style="font-size: 13px">
-                      <?php 
-                      $cont = $result->content;
-                      $cont = str_replace('<div class="bl_copy">', '', $cont);
-                      $cont = str_replace('<p>', '', $cont);
-                      echo limit_words($cont, 30); ?></p>
-                  </div>
-                </div>              
-
-              @endif
-              @if($loop->iteration%2==0)
-                <div class="card mt-3">
-                  @if ($result->feature_image)
-                  <a href="/post/{{ $result->slug}}"><img src="/uploads/posts/{{ $result->feature_image}}" class="card-img-top" alt="..."></a>
-                  @endif
-                  <div class="card-body">
-                    <a class="card-title text-capitalize h5" href="/post/{{ $result->slug}}"><b><?= strtolower($result->title) ?></b></a>
-                    <p class="card-text mt-2" style="font-size: 13px">
-                      <?php 
-                      $cont = $result->content;
-                      $cont = str_replace('<div class="bl_copy">', '', $cont);
-                      $cont = str_replace('<p>', '', $cont);
-                      echo limit_words($cont, 30); ?></p>
-                  </div>
-                </div>
-              </div>
-              @endif
-              @endif
-              @if($jumpos%2==1)
-              @if($loop->iteration%2==1)
-
-              <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="card mt-3">
-                  @if ($result->feature_image)
-                  <a href="/post/{{ $result->slug}}"><img src="/uploads/posts/{{ $result->feature_image}}" class="card-img-top" alt="..."></a>
-                  @endif
-                  <div class="card-body">
-                    <a class="card-title text-capitalize h5" href="/post/{{ $result->slug}}"><b><?= strtolower($result->title) ?></b></a>
-                    <p class="card-text mt-2" style="font-size: 13px">
-                      <?php 
-                      $cont = $result->content;
-                      $cont = str_replace('<div class="bl_copy">', '', $cont);
-                      $cont = str_replace('<p>', '', $cont);
-                      $cont = str_replace('<h2>', '', $cont);
-                      echo limit_words($cont, 30); ?></p>
-                  </div>
-                </div>              
-
-              @endif
-              @if($loop->iteration%2==0)
-                <div class="card mt-3">
-                  @if ($result->feature_image)
-                  <a href="/post/{{ $result->slug}}"><img src="/uploads/posts/{{ $result->feature_image}}" class="card-img-top" alt="..."></a>
-                  @endif
-                  <div class="card-body">
-                    <a class="card-title text-capitalize h5" href="/post/{{ $result->slug}}"><b><?= strtolower($result->title) ?></b></a>
-                    <p class="card-text mt-2" style="font-size: 13px">
-                      <?php 
-                      $cont = $result->content;
-                      $cont = str_replace('<div class="bl_copy">', '', $cont);
-                      $cont = str_replace('<p>', '', $cont);
-                      echo limit_words($cont, 30); ?></p>
-                  </div>
-                </div>
-              </div>
-              @endif
-
-              @endif
-              @endforeach
-              @if($jumpos%2==1)
-              </div>
-              @endif
-            </div>
-          </div>
+    <div class="row">
+        <div class="col-xl-8">
+        <div class="hero-cap hero-cap2 pt-70">
+            <h2 style="color:white">Not found</h2>
+            <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="index.html">Post</a></li>
+                <li class="breadcrumb-item"><a href="index.html">Not found</a></li>
+            </ol>
+            </nav>
         </div>
-      </div>
+        </div>
     </div>
-  </section>
-  <!-- End Latest Section -->
+    </div>
+    </div>
+    </div>
+    <!-- Hero End -->
+    <!--? Blog Area Start -->
+    <section class="blog_area single-post-area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 posts-list">
+                    <div class="single-post">
+                      <div class="feature-img">
+                          <!-- <img class="img-fluid" src="/assets/home1/img/blog/single_blog_1.png" alt=""> -->
+                      </div>
+                      <div class="blog_details">
+                        <!-- isi post -->
+                        <div class="row">
+                          <div class="col">
+                            <h1 style="margin-bottom: 0px">Post not found</h1>
+                            <br><br>
+                          </div>                        
+                        </div>
+                        <!-- end isi post -->
+                      </div>  
+                </div>
+                <!-- like and share -->
+                <div class="navigation-top">
+                    <div class="d-sm-flex justify-content-between text-center">
+                        <!-- <p class="like-info"><span class="align-middle"><i class="fa fa-heart"></i></span> Lily and 4 people like this</p> -->
+                        
+                        <div class="col-sm-4 text-center my-2 my-sm-0">
+                        <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
+                    </div>
+
+                    <!-- share -->
+                    <ul class="social-icons">
+                        <li><a href="https://www.facebook.com/sai4ull"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
+                        <li><a href="#"><i class="fab fa-behance"></i></a></li>
+                    </ul>
+                    <!-- end share -->
+                </div>
+                <!-- end like and share -->
+
+                <!-- next and previouse post -->
+                <div class="navigation-area">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
+                            <div class="thumb">
+                                <a href="#">
+                                    <img class="img-fluid" src="/assets/home1/img/post/preview.png" alt="">
+                                </a>
+                            </div>
+                            
+                            <div class="arrow">
+                                <a href="#">
+                                    <span class="lnr text-white ti-arrow-left"></span>
+                                </a>
+                            </div>
+                        <div class="detials">
+                            <p>Prev Post</p>
+                            <a href="#">
+                            <h4 style="color: #2d2d2d;">Space The Final Frontier</h4>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
+                        <div class="detials">
+                            <p>Next Post</p>
+                            <a href="#">
+                                <h4 style="color: #2d2d2d;">Telescopes 101</h4>
+                            </a>
+                        </div>
+                        <div class="arrow">
+                            <a href="#">
+                                <span class="lnr text-white ti-arrow-right"></span>
+                            </a>
+                        </div>
+                        <div class="thumb">
+                            <a href="#">
+                            <img class="img-fluid" src="/assets/home1/img/post/next.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <!-- end next and previouse post -->
+            </div>
+        </div>
+    </div>
+
+    </div>
+    @include('page._partials.sidebar')
+
 
 @endsection()

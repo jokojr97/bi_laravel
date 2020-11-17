@@ -22,8 +22,8 @@ function limit_words($string, $word_limit){
                     <div class="row">
                         <div class="col-xl-8 col-lg-8 col-md-8 col-sm-10">
                             <div class="hero__caption">
-                                <h1 data-animation="fadeInUp" data-delay=".2s">Kunjungan Mahasiswa Norwegia</h1>
-                                <P data-animation="fadeInUp" data-delay=".4s">Provide us a green and healthy life<br> we need to protect </P>
+                                <h1 data-animation="fadeInUp" data-delay=".2s">Kunjungan dari Norwegia</h1>
+                                <p data-animation="fadeInUp" data-delay=".4s">Bojonegoro Institute medapat kunjungan dari Norwegia terkait penelitian migas di Bojoengoro</p>
                                 <!-- Hero-btn -->
                                 <div class="hero__btn">
                                     <a href="industries.html" class="hero-btn mb-10"  data-animation="fadeInUp" data-delay=".8s">Join Us Now</a>
@@ -40,7 +40,7 @@ function limit_words($string, $word_limit){
                         <div class="col-xl-8 col-lg-8 col-md-8 col-sm-10">
                             <div class="hero__caption">
                                 <h1 data-animation="fadeInUp" data-delay=".2s">Suara Perempuan Penggerak Kommunitas (SPeAK)</h1>
-                                <P data-animation="fadeInUp" data-delay=".4s">Provide us a green and healthy life<br> we need to protect </P>
+                                <P data-animation="fadeInUp" data-delay=".4s">Sebuah Koalisi organsasi perempuan yang diinisiasi oleh bojonegoro institute, transparency international, Hivos, dan EU</P>
                                 <!-- Hero-btn -->
                                 <div class="hero__btn">
                                     <a href="industries.html" class="hero-btn mb-10"  data-animation="fadeInUp" data-delay=".8s">Join Us Now</a>
@@ -56,7 +56,7 @@ function limit_words($string, $word_limit){
                     <div class="row">
                         <div class="col-xl-8 col-lg-8 col-md-8 col-sm-10">
                             <div class="hero__caption">
-                                <h1 data-animation="fadeInUp" data-delay=".2s">Environment</h1>
+                                <h1 data-animation="fadeInUp" data-delay=".2s">Sekolah Keterbukaan dan Advokasi (SaKSI)</h1>
                                 <P data-animation="fadeInUp" data-delay=".4s">Provide us a green and healthy life<br> we need to protect </P>
                                 <!-- Hero-btn -->
                                 <div class="hero__btn">
