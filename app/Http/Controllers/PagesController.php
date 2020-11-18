@@ -37,7 +37,8 @@ class PagesController extends Controller
         $berita = Posts::where('type', 1)->latest()->paginate(8);
         $ada = Posts::where('type', 1)->exists();
         $latest = Posts::latest()->limit(8)->get();
-        return view('page.news', ['berita' => $berita, 'posts' => $posts, 'category' => $category,'type' => $type, 'ada' => $ada, 'latest' => $latest, 'menu' => $menu, 'site' => $site]);
+        $tags = 'Bojonegoro, Institute, Bojonegoro Institute';
+        return view('page.news', ['berita' => $berita, 'posts' => $posts, 'category' => $category,'type' => $type, 'ada' => $ada, 'latest' => $latest, 'menu' => $menu, 'site' => $site, 'tags' => $tags]);
     }
     public function preview($id){
         $site = SiteSetting::find(1);
@@ -149,7 +150,7 @@ class PagesController extends Controller
         $latest = Posts::latest()->limit(8)->get();
         return view('page.kegiatan', ['post' => $post, 'kegiatan' => $kegiatan, 'category' => $category,'type' => $type, 'ada' => $ada, 'latest' => $latest, 'menu' => $menu, 'site' => $site]);        
     }
-    
+
     public function tagpreview(Request $request){
         dd($request);
     }

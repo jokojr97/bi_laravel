@@ -55,8 +55,17 @@
             <h4 class="widget_title" style="color: #2d2d2d;">Tag Clouds</h4>
             <ul class="list">
             @if(isset($tags))
-            
-
+                @php
+                    $tag = explode(',', $tags);
+                @endphp
+                @foreach($tag as $hasil)
+                <?php 
+                    $hasil = trim($hasil);
+                ?>
+                <li>
+                    <a href="{{route('tag.show', $hasil)}}">{{$hasil}}</a>
+                </li>
+                @endforeach
             @else
                 <li>
                     <a href="{{route('tag.show', 'bojonegoro')}}">Bojonegoro</a>
