@@ -149,6 +149,11 @@ class PagesController extends Controller
         $latest = Posts::latest()->limit(8)->get();
         return view('page.kegiatan', ['post' => $post, 'kegiatan' => $kegiatan, 'category' => $category,'type' => $type, 'ada' => $ada, 'latest' => $latest, 'menu' => $menu, 'site' => $site]);        
     }
+    
+    public function tagpreview(Request $request){
+        dd($request);
+    }
+
     public function kegiatanpreview($id){
         $site = SiteSetting::find(1);
         $menu = Menu::all();

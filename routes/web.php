@@ -18,17 +18,17 @@ use Illuminate\Support\Facades\Route;
 // });
 
 // pages route
-Route::get('/', 'PagesController@home');
-Route::get('/berita', 'PagesController@news');
-Route::get('/post/{news}', 'PagesController@preview');
-Route::get('/page/{page}', 'PagesController@page');
-Route::get('/category/{category}', 'PagesController@category');
-Route::get('/type/{type}', 'PagesController@type');
+Route::get('/', 'PagesController@home')->name('home');
+Route::get('/berita', 'PagesController@news')->name('berita');
+Route::get('/post/{news}', 'PagesController@preview')->name('post.show');
+Route::get('/page/{page}', 'PagesController@page')->name('page.show');
+Route::get('/category/{category}', 'PagesController@category')->name('category.show');
+Route::get('/type/{type}', 'PagesController@type')->name('type.show');
 Route::post('/search', 'PagesController@search')->name('searchdata');
-Route::post('/contact', 'PagesController@contactstore');
-Route::get('/contactus', 'PagesController@contactus');
-Route::get('/post/{news}', 'PagesController@preview');
-Route::get('/kegiatan/{kegiatan}', 'PagesController@kegiatanpreview');
+Route::post('/contact', 'PagesController@contactstore')->name('contact.store');
+Route::get('/contactus', 'PagesController@contactus')->name('contact');
+Route::get('/kegiatan/{kegiatan}', 'PagesController@kegiatanpreview')->name('kegiatan.show');
+Route::get('/tag/{tag}', 'PagesController@tagpreview')->name('tag.show');
 
 Auth::routes();
 

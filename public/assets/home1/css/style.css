@@ -2365,6 +2365,12 @@ to{-webkit-transform:rotate(360deg)}
 
 .postdetail blockquote {background:#fff;padding:15px 15px 15px 20px;border-left:2px solid}
 
+.recent-post {
+	width:100px;
+	height: 100px;
+	object-fit: cover;
+}
+
 .img-berita {
 	height: 300px;
 	object-fit: cover;

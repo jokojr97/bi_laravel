@@ -21,42 +21,14 @@
         <aside class="single_sidebar_widget post_category_widget">
             <h4 class="widget_title" style="color: #2d2d2d;">Category</h4>
             <ul class="list cat-list">
+                @foreach($category as $result)
                 <li>
-                    <a href="#" class="d-flex">
-                        <p>Resaurant food</p>
-                        <p>(37)</p>
+                    <a href="{{route('category.show', $result->slug)}}" class="d-flex">
+                        <p>{{$result->name}}</p>
+                        <p>(0)</p>
                     </a>
                 </li>
-                <li>
-                    <a href="#" class="d-flex">
-                        <p>Travel news</p>
-                        <p>(10)</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="d-flex">
-                        <p>Modern technology</p>
-                        <p>(03)</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="d-flex">
-                        <p>Product</p>
-                        <p>(11)</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="d-flex">
-                        <p>Inspiration</p>
-                        <p>(21)</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="d-flex">
-                        <p>Health Care</p>
-                        <p>(21)</p>
-                    </a>
-                </li>
+                @endforeach
             </ul>
         </aside>
         <!-- end category -->
@@ -64,42 +36,17 @@
         <!-- recent post -->
         <aside class="single_sidebar_widget popular_post_widget">
             <h3 class="widget_title" style="color: #2d2d2d;">Recent Post</h3>
+            @foreach($posts as $result)
             <div class="media post_item">
-                <img src="/assets/home1/img/post/post_1.png" alt="post">
+                <img src="/uploads/posts/{{$result->feature_image}}" alt="post" class="recent-post">
                 <div class="media-body">
                     <a href="blog_details.html">
-                        <h3 style="color: #2d2d2d;">From life was you fish...</h3>
-                    </a>
-                    <p>January 12, 2019</p>
-                </div>
-            </div>
-            <div class="media post_item">
-                <img src="/assets/home1/img/post/post_2.png" alt="post">
-                <div class="media-body">
-                    <a href="blog_details.html">
-                        <h3 style="color: #2d2d2d;">The Amazing Hubble</h3>
-                    </a>
-                    <p>02 Hours ago</p>
-                </div>
-            </div>
-            <div class="media post_item">
-                <img src="/assets/home1/img/post/post_3.png" alt="post">
-                <div class="media-body">
-                    <a href="blog_details.html">
-                        <h3 style="color: #2d2d2d;">Astronomy Or Astrology</h3>
+                        <h3 style="color: #2d2d2d;">{{$result->title}}</h3>
                     </a>
                     <p>03 Hours ago</p>
                 </div>
             </div>
-            <div class="media post_item">
-                <img src="/assets/home1/img/post/post_4.png" alt="post">
-                <div class="media-body">
-                    <a href="blog_details.html">
-                        <h3 style="color: #2d2d2d;">Asteroids telescope</h3>
-                    </a>
-                    <p>01 Hours ago</p>
-                </div>
-            </div>
+            @endforeach
         </aside>
         <!-- end recent post -->
 
@@ -107,36 +54,26 @@
         <aside class="single_sidebar_widget tag_cloud_widget">
             <h4 class="widget_title" style="color: #2d2d2d;">Tag Clouds</h4>
             <ul class="list">
+            @if(isset($tags))
+            
+
+            @else
                 <li>
-                    <a href="#">project</a>
+                    <a href="{{route('tag.show', 'bojonegoro')}}">Bojonegoro</a>
                 </li>
                 <li>
-                    <a href="#">love</a>
+                    <a href="{{route('tag.show', 'institute')}}">institute</a>
                 </li>
                 <li>
-                    <a href="#">technology</a>
+                    <a href="{{route('tag.show', 'bojonegoro institute')}}">bojonegoro institute</a>
                 </li>
-                <li>
-                    <a href="#">travel</a>
-                </li>
-                <li>
-                    <a href="#">restaurant</a>
-                </li>
-                <li>
-                    <a href="#">life style</a>
-                </li>
-                <li>
-                    <a href="#">design</a>
-                </li>
-                <li>
-                    <a href="#">illustration</a>
-                </li>
+            @endif
             </ul>
         </aside>
         <!-- end tag post -->
 
         <!-- foto instagram -->
-        <aside class="single_sidebar_widget instagram_feeds">
+        <!-- <aside class="single_sidebar_widget instagram_feeds">
             <h4 class="widget_title" style="color: #2d2d2d;">Instagram Feeds</h4>
             <ul class="instagram_row flex-wrap">
                 <li>
@@ -170,7 +107,7 @@
                     </a>
                 </li>
             </ul>
-        </aside>
+        </aside> -->
         <!-- end foto instagram -->
 
         <!-- subcribe newsletter -->
