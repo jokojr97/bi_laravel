@@ -35,8 +35,8 @@ function get_bulan($date){
             <h2 style="color:white">Berita</h2>
             <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item"><a href="index.html">Berita</a></li>
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/">Berita</a></li>
             </ol>
             </nav>
         </div>
@@ -57,31 +57,64 @@ function get_bulan($date){
               </div>
               <div class="blog_details">
               <!-- isi post -->
-                <div class="row">
-                  @if($ada == true)                          
-                    @foreach($berita as $result)
-                      <div class="col-md-6">
-                        <article class="blog_item">
-                          <div class="blog_item_img">
-                            <img class="card-img rounded-0 img-berita" src="/uploads/posts/{{$result->feature_image}}" alt="">
-                            <a href="#" class="blog_item_date">
-                              <h3>{{ substr($result->published_at, 8, 2) }}</h3>
-                              <p>{{ get_bulan($result->published_at) }}</p>
-                            </a>
-                          </div>
-                          <div class="blog_details">
-                            <a class="d-inline-block" href="/post/{{$result->slug}}">
-                              <h2 class="blog-head" style="color: #2d2d2d;">{{$result->title}}</h2>
-                            </a>
-                            <p>{{$result->exercipt}}</p>
-                            <ul class="blog-info-link">
-                              <li><a href="#"><i class="fa fa-user"></i> {{$result->category->name}}</a></li>
-                              <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
-                            </ul>
-                          </div>
-                        </article>    
-                      </div>
-                    @endforeach
+                <div class="form-row">
+                  @if($ada == true)             
+                  <div class="col-md-6">
+                               
+                  @foreach($berita as $result)
+                    @if($loop->iteration % 2 == 1)
+                    <div class="col">
+                      <article class="blog_item">
+                        <div class="blog_item_img">
+                          <img class="card-img rounded-0 img-berita" src="/uploads/posts/{{$result->feature_image}}" alt="">
+                          <a href="#" class="blog_item_date">
+                            <h3>{{ substr($result->published_at, 8, 2) }}</h3>
+                            <p>{{ get_bulan($result->published_at) }}</p>
+                          </a>
+                        </div>
+                        <div class="blog_details">
+                          <a class="d-inline-block" href="/post/{{$result->slug}}">
+                            <h2 class="blog-head" style="color: #2d2d2d;">{{$result->title}}</h2>
+                          </a>
+                          <p>{{$result->exercipt}}</p>
+                          <ul class="blog-info-link">
+                            <li><a href="#"><i class="fa fa-user"></i> {{$result->category->name}}</a></li>
+                            <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
+                          </ul>
+                        </div>
+                      </article>    
+                    </div>
+                    @endif
+                  @endforeach
+                  </div>
+                  <div class="col-md-6">
+                               
+                  @foreach($berita as $result)
+                    @if($loop->iteration % 2 == 0)
+                    <div class="col">
+                      <article class="blog_item">
+                        <div class="blog_item_img">
+                          <img class="card-img rounded-0 img-berita" src="/uploads/posts/{{$result->feature_image}}" alt="">
+                          <a href="#" class="blog_item_date">
+                            <h3>{{ substr($result->published_at, 8, 2) }}</h3>
+                            <p>{{ get_bulan($result->published_at) }}</p>
+                          </a>
+                        </div>
+                        <div class="blog_details">
+                          <a class="d-inline-block" href="/post/{{$result->slug}}">
+                            <h2 class="blog-head" style="color: #2d2d2d;">{{$result->title}}</h2>
+                          </a>
+                          <p>{{$result->exercipt}}</p>
+                          <ul class="blog-info-link">
+                            <li><a href="#"><i class="fa fa-user"></i> {{$result->category->name}}</a></li>
+                            <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
+                          </ul>
+                        </div>
+                      </article>    
+                    </div>
+                    @endif
+                  @endforeach
+                  </div>
                   @else
                     <h1>Berita Belum tersedia</h1>
                   @endif

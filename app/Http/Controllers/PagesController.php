@@ -20,7 +20,7 @@ class PagesController extends Controller
         $site = SiteSetting::find(1);
         $menu = Menu::all();
         $posts = Posts::limit(7)->latest()->get();
-        $berita = Posts::where('type', 1)->limit(6)->get();
+        $berita = Posts::where('type', 1)->limit(3)->get();
         $kegiatan = Posts::where('type', 1)->limit(8)->get();
         $opini = Posts::where('type', 1)->limit(4)->get();
         $galeri = Posts::where('type', 1)->limit(8)->get();
@@ -38,19 +38,21 @@ class PagesController extends Controller
         $ada = Posts::where('type', 1)->exists();
         $latest = Posts::latest()->limit(8)->get();
         $tags = 'Bojonegoro, Institute, Bojonegoro Institute';
+        // dd($category[0]->count(1));
         return view('page.news', ['berita' => $berita, 'posts' => $posts, 'category' => $category,'type' => $type, 'ada' => $ada, 'latest' => $latest, 'menu' => $menu, 'site' => $site, 'tags' => $tags]);
     }
     public function preview($id){
         $site = SiteSetting::find(1);
         $menu = Menu::all();
+        $category = Categories::latest()->limit(6)->get();
         $posts = Posts::latest()->limit(8)->get();
         $post = Posts::get()->where('slug', $id)->first();
         $ada = Posts::where('slug', $id)->exists();
         // return $post;
         if ($ada) {
-            return view('page.preview', ['post' => $post, 'posts' => $posts, 'menu' => $menu, 'site' => $site]);
+            return view('page.preview', ['post' => $post, 'posts' => $posts, 'menu' => $menu, 'site' => $site, 'category' => $category]);
         }else {
-            return view('page.previewnull', ['posts' => $posts, 'menu' => $menu, 'site' => $site]);
+            return view('page.previewnull', ['posts' => $posts, 'menu' => $menu, 'site' => $site, 'category' => $category]);
         }
     }
     public function category($id){
@@ -71,17 +73,17 @@ class PagesController extends Controller
         $ids = str_replace("-", " ", $id);
         return view('page.category', ['post' => $post, 'posts' => $posts, 'category' => $category,'type' => $type, 'ada' => $ada, 'ids' => $ids, 'latest' => $latest, 'menu' => $menu, 'site' => $site]);
     }
-    public function type($id){
-        $site = SiteSetting::find(1);
+    public function type(Request $request){
+        $site = SiteSetting::find($request->segment(2));
         $menu = Menu::all();
-        $maktif = Menu::where('slug', $id)->first();
+        $maktif = Menu::where('slug', $request->segment(2))->first();
         if ($maktif) {
         }else {
         }
         $posts = Posts::latest()->limit(4)->get();
         $category = Categories::latest()->limit(6)->get();
         $type = PostType::limit(6)->get();
-        $cat = PostType::get()->where('slug', $id)->first();
+        $cat = PostType::get()->where('slug', $request->segment(2))->first();
         $latest = Posts::latest()->limit(8)->get();
         if ($cat) {
             $post = Posts::where('type', $cat->id)->paginate(8);
@@ -90,35 +92,45 @@ class PagesController extends Controller
             $ada=false;
             $post="";
         }
-        $ids = str_replace("-", " ", $id);
+        $ids = str_replace("-", " ", $request->segment(2));
+        
         return view('page.type', ['post' => $post, 'posts' => $posts, 'category' => $category,'type' => $type, 'ada' => $ada, 'ids' => $ids, 'latest' => $latest, 'menu' => $menu, 'site' => $site]);
     }
     public function search(Request $request){
         // dd($request);
+        $search = $request->search;
+        return redirect()->route('searchpost', $search);
+        // return dd($post);
+    }
+    public function searchpost(Request $request){
+        // dd($request);
         $site = SiteSetting::find(1);
         $menu = Menu::all();
         $search = $request->search;
-        $post = Posts::where('content', 'like', '%'.$request->search.'%')->paginate(8);
+        $post = Posts::where('content', 'like', '%'.$request->search.'%')->paginate(10);
         $ada = Posts::where('content', 'like', '%'.$request->search.'%')->exists();
         $category = Categories::latest()->limit(6)->get();
         $type = PostType::limit(6)->get();
         $latest = Posts::latest()->limit(8)->get();
+        $ids = $request->search;
+        $posts = Posts::latest()->limit(4)->get();
         // dd($post);
-        return view('page.search', ['post' => $post, 'category' => $category,'type' => $type, 'search' => $search, 'ada' => $ada, 'latest' => $latest, 'menu' => $menu, 'site' => $site]);
+        return view('page.search', ['post' => $post, 'category' => $category,'type' => $type, 'search' => $search, 'ada' => $ada, 'latest' => $latest, 'menu' => $menu, 'site' => $site, 'ids' => $ids, 'posts' => $posts]);
         // return dd($post);
     }
     public function page($id) {
         $site = SiteSetting::find(1);
         $menu = Menu::all();
-        $posts = Pages::latest()->limit(8)->get();
+        $posts = Posts::latest()->limit(8)->get();
         $page = Pages::get()->where('slug', $id)->first();
         $ada = Pages::where('slug', $id)->exists();
+        $category = Categories::latest()->limit(6)->get();
         // return $page;
         if ($ada) {
-            return view('page.pagepreview', ['page' => $page, 'posts' => $posts, 'menu' => $menu, 'site' => $site]);
+            return view('page.pagepreview', ['page' => $page, 'posts' => $posts, 'menu' => $menu, 'site' => $site, 'category' => $category]);
         }else {
             $posts = Posts::latest()->limit(8)->get();
-            return view('page.previewnull', ['posts' => $posts, 'menu' => $menu, 'site' => $site]);
+            return view('page.previewnull', ['posts' => $posts, 'menu' => $menu, 'site' => $site, 'category' => $category]);
         }
     }
     public function notfond(){
@@ -152,7 +164,7 @@ class PagesController extends Controller
     }
 
     public function tagpreview(Request $request){
-        dd($request);
+        dd($request->segment(2));
     }
 
     public function kegiatanpreview($id){

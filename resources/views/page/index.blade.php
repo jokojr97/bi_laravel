@@ -181,45 +181,19 @@ function limit_words($string, $word_limit){
                 </div>
             </div>
             <div class="row">
+                @foreach($berita as $result)
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="single-cases mb-40">
                         <div class="cases-img">
-                            <img src="/assets/home1/img/gallery/case1.png" alt="">
+                            <img src="/uploads/posts/{{$result->feature_image}}" alt="{{$result->title}}" class="img-berita">
                         </div>
                         <div class="cases-caption">
-                            <h3><a href="#">Wildlife in Danger</a></h3>
-                            <p>Interdum nulla, ut commodo diam libero vitae 
-                                erat. Aenean faucibus nibh et justo cursus 
-                            rutrum.</p>
+                            <h3><a href="/post/{{$result->slug}}">{{limit_words($result->title, 7)}}...</a></h3>
+                            <p>{{limit_words($result->exercipt, 35)}}...</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-cases mb-40">
-                        <div class="cases-img">
-                            <img src="/assets/home1/img/gallery/case2.png" alt="">
-                        </div>
-                        <div class="cases-caption">
-                            <h3><a href="#">Our Green Projects</a></h3>
-                            <p>Interdum nulla, ut commodo diam libero vitae 
-                                erat. Aenean faucibus nibh et justo cursus 
-                            rutrum.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-cases">
-                        <div class="cases-img">
-                            <img src="/assets/home1/img/gallery/case3.png" alt="">
-                        </div>
-                        <div class="cases-caption">
-                            <h3><a href="#">Wildlife in Danger</a></h3>
-                            <p>Interdum nulla, ut commodo diam libero vitae 
-                                erat. Aenean faucibus nibh et justo cursus 
-                            rutrum.</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

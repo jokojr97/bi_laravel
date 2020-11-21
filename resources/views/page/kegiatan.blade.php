@@ -20,7 +20,7 @@ function limit_words($string, $word_limit){
     <div class="d-flex justify-content-between align-items-center pb-3">
       <h5 style="margin-bottom: 0px">Kegiatan</h5>
       <ol>
-        <li><a href="index.html">Home</a></li>
+        <li><a href="/">Home</a></li>
         <li>Kegiatan</li>
       </ol>
     </div>

@@ -23,9 +23,9 @@ function limit_words($string, $word_limit){
             <h2 style="color:white">Not found</h2>
             <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item"><a href="index.html">Post</a></li>
-                <li class="breadcrumb-item"><a href="index.html">Not found</a></li>
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/">Post</a></li>
+                <li class="breadcrumb-item"><a href="/">Not found</a></li>
             </ol>
             </nav>
         </div>

@@ -1,3 +1,15 @@
+<?php 
+function get_tanggal($tanggal){
+    $tanggal = substr($tanggal, 0, 10);
+    $tanggal = date_create_from_format('Y-m-d', $tanggal);
+    if($tanggal){
+        $tgl = date_format($tanggal, "d M Y");
+    }else {
+        $tgl = "";
+    }
+    return $tgl;
+}
+?>
     <!-- right sidebar -->
     <div class="col-lg-4"><div class="blog_right_sidebar">
         <!-- sidebar search form -->
@@ -25,7 +37,7 @@
                 <li>
                     <a href="{{route('category.show', $result->slug)}}" class="d-flex">
                         <p>{{$result->name}}</p>
-                        <p>(0)</p>
+                        <p>({{$result->count($result->id)}})</p>
                     </a>
                 </li>
                 @endforeach
@@ -43,7 +55,7 @@
                     <a href="blog_details.html">
                         <h3 style="color: #2d2d2d;">{{$result->title}}</h3>
                     </a>
-                    <p>03 Hours ago</p>
+                    <p>{{ get_tanggal($result->published_at ) }}</p>
                 </div>
             </div>
             @endforeach

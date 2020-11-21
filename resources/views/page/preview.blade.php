@@ -35,9 +35,9 @@ if ($post->feature_image) {
             <h2 style="color:white">{{ $post->title }}</h2>
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                  <li class="breadcrumb-item"><a href="index.html">Post</a></li>
-                  <li class="breadcrumb-item"><a href="index.html">{{ $post->title }}</a></li>
+                  <li class="breadcrumb-item"><a href="/">Home</a></li>
+                  <li class="breadcrumb-item"><a href="/">Post</a></li>
+                  <li class="breadcrumb-item"><a href="/">{{ $post->title }}</a></li>
               </ol>
             </nav>
         </div>

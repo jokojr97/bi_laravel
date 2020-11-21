@@ -60,7 +60,7 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-2">
                                 <div class="logo">
-                                    <a href="index.html"><img src="/assets/home1/img/logo/logo.jpg" alt="" width="150"></a>
+                                    <a href="/"><img src="/assets/home1/img/logo/logo.jpg" alt="" width="150"></a>
                                 </div>
                             </div>
                             <div class="col-xl-10 col-lg-10">
@@ -117,7 +117,7 @@
                                <div class="single-footer-caption mb-30">
                                    <!-- logo -->
                                    <div class="footer-logo mb-35">
-                                       <a href="index.html"><img src="/assets/home1/img/logo/logo.jpg" alt="" width="150"></a>
+                                       <a href="/"><img src="/assets/home1/img/logo/logo.jpg" alt="" width="150"></a>
                                    </div>
                                    <div class="footer-tittle">
                                        <div class="footer-pera">
@@ -184,7 +184,7 @@
                            <div class="col-xl-12 ">
                                <div class="footer-copy-right text-center">
                                    <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                      Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Bojonegoro Institute <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                                      Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Bojonegoro Institute <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">BI</a>
                                       <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                                   </div>
                               </div>

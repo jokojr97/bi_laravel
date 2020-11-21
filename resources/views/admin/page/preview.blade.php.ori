@@ -8,8 +8,8 @@
             <h2 style="color:white">Profile</h2>
             <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item"><a href="index.html">Profil</a></li>
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/">Profil</a></li>
             </ol>
             </nav>
         </div>

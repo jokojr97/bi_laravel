@@ -4,139 +4,130 @@ function limit_words($string, $word_limit){
     return implode(" ",array_splice($words,0,$word_limit));
 }
 
+function get_bulan($date){
+  $tgl = substr($date, 5, 2);
+  $monthNum = $tgl;
+  // Create date object to store the DateTime format 
+  $dateObj = DateTime::createFromFormat('!m', $monthNum);
+  // Store the month name to variable 
+  $monthName = $dateObj->format('F');   
+  $monthName = substr($monthName, 0, 3);
+  // Display output 
+  return $monthName;
+   
+}
 ?>
+
 @extends ('layouts/main')
 
-@section('title')Search - Bojonegoro Institute @endsection
+@section('title')Hasil Pencarian {{ucfirst($ids)}} - Bojonegoro Institute @endsection
 @section('metadeskription', 'Bojonegoro Institute merupakan Bojonegoro institute, adalah organisasi masyarakat sipil atau Civil Society Organization (CSO) yang berdiri pada tanggal 20 Februari 2005. Dengan Akte Notaris Didiek wahju indarta, SH. No 208 Tahun 2005. Selanjutnya didaftarkan pada Badan Kesbanglinmas Bojonegoro pada tahun 2006.')
 @section('metakeywords', 'bojonegoro institute, bi, bojonegoro, institute, Bojonegoro Institute, Institute Bojonegoro')
 
 @section('container')
 
-<!-- header -->
-<section id="breadcrumbs" class="breadcrumbs" style="padding-top: 0;padding-bottom: 0">
-  <div class="container">
 
-    <div class="d-flex justify-content-between align-items-center pb-3">
-      <h5 style="margin-bottom: 0px">Search: {{ $search }}</h5>
-      <ol>
-        <li><a href="index.html">Home</a></li>
-        <li>Search</li>
-      </ol>
-    </div>
-
-  </div>
-</section><!-- End Breadcrumbs -->
-
-<!-- end header -->
-<main id="main">
-  <!-- ======= Detail News Section ======= -->
-
-  <!-- End Latest Section -->
-
-  <section id="list" style="margin-top: -40px">
+<div class="slider-area" style="background-color:rgb(31, 30, 30)">
+    <div class="slider-height2 d-flex align-items-center">
     <div class="container">
-      <div class="row">
-        <div class="col-md-8" data-aos="fade-up" data-aos-delay="400">
-          @if($ada=="true")
-            @foreach($post as $result)
-            <div class="form-row">
-              <div class="col-md-3 col-4 mt-2">
-                <div class="portfolio" style="background-color: #1f3983">
-                  <div class="portfolio-wrap">
-                  @if ($result->feature_image)
-                  <a href="/post/{{ $result->slug}}"><img src="/uploads/posts/{{ $result->feature_image}}" class="pt-2 img-fluid img-news" alt="..."></a>
-                  @else
-                  <a href="/post/{{ $result->slug}}"><img src="/uploads/posts/AC_portfolio_1440x480.jpg" class="pt-2 img-fluid img-news" alt="..."></a>
-
-                  @endif
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-9 col-8 mt-3">                
-                <a href="/post/{{ $result->slug}}" class="pt-3 text-capitalize"><p class=" text-title"><b><?= strtolower($result->title) ?></b></p></a>
-                <a href="/category/{{ $result->category->slug }}" class="btn btn-sm btn-primary" style="margin-top: -12px;background-color: #1f3983">{{ $result->category->slug }}</a>
-                <p class="card-text mt-2" style="font-size: 13px;">
-                  <?php 
-                  $pub = substr($result->published_at, 0,10);
-                  $pub = date('F, Y', strtotime($pub));
-                  $pub = str_replace(',', '', $pub);
-                  echo "<b>".$pub." - </b>";
-                  $cont = $result->content;
-                  $cont = str_replace('<div class="bl_copy">', '', $cont);
-                  $cont = str_replace('<p>', '', $cont);
-                  echo limit_words($cont, 20); ?></p>
-              </div>   
-            </div>  
-            @endforeach
-            @else
-            <h2>Data tidak ditemukan</h2>
-          @endif
-          <div class="row">
-            <div class="col p-3">            
-              {{ $post->links() }}
-            </div>
-          </div>
+    <div class="row">
+        <div class="col-xl-8">
+        <div class="hero-cap hero-cap2 pt-70">
+            <h2 style="color:white">Search::{{ucfirst($ids)}}</h2>
+            <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/">Search</a></li>
+                <li class="breadcrumb-item"><a href="/">{{ucfirst($ids)}}</a></li>
+            </ol>
+            </nav>
         </div>
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
-          <div class="container">
-          <div style="margin-left: -10px">
-            <h2>LATEST</h2>
-            <hr style="border: 3px solid orange;margin-top: -15px;margin-bottom: 0px">
-          </div>
-          <div class="row">
-            @foreach($latest as $result)
-            <div class="form-row">
-              <div class="col-md-5 col-4 mt-2">
-                <div class="portfolio" style="background-color: #1f3983">
-                  <div class="portfolio-wrap">
-                    @if ($result->feature_image)
-                    <a href="/post/{{ $result->slug}}"><img src="/uploads/posts/{{ $result->feature_image}}" class="img-fluid" alt="..."></a>
-                    @else
-                    <a href="/post/{{ $result->slug}}"><img src="/uploads/posts/AC_portfolio_1440x480.jpg" class="img-fluid" alt="..."></a>
-                    @endif
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-7 col-8 mt-3">                
-                <a href="/post/{{ $result->slug}}" class="pt-2 text-capitalize"><p style="line-height:1.2em;"><b><?php 
-                $title = strtolower($result->title);
-                $title = $title = substr($title, 0, 50);
-                echo $title;
-                ?>...</b></p></a>
-              </div>   
-            </div>  
-            @endforeach
-          </div>
-          <br>
-          <div class="row">
-            <table class="table table-hover" data-aos="fade-up" data-aos-delay="400">
-              <thead>
-                <tr class="text-center">
-                  <th><a href="#" class="h4 text-reds"><b>CATEGORY</b></a></th>
-                </tr>
-                @foreach($category as $hasil)
-                <tr>
-                  <th><a href="/category/{{ $hasil->slug }}" class="h6 text-reds text-capitalize"><b><?= strtolower($hasil->name) ?></b></a></th>
-                </tr>
-                @endforeach
-                <tr class="text-center">
-                  <th><a href="#" class="h4 text-reds"><b>MORE</b></a></th>
-                </tr>
-                @foreach($type as $hasil)
-                <tr>
-                  <th><a href="/type/{{ $hasil->slug }}" class="h6 text-reds text-capitalize"><b><?= strtolower($hasil->name) ?></b></a></th>
-                </tr>
-                @endforeach
-              </thead>
-            </table>
-          </div>
         </div>
-        </div>   
-
-      </div>
     </div>
+    </div>
+    </div>
+    </div>
+    <!-- Hero End -->
+    <!--? Blog Area Start -->
+    <section class="blog_area single-post-area section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 posts-list">
+            <div class="single-post">
+              <div class="feature-img">
+                <!-- <img class="img-fluid" src="/assets/home1/img/blog/single_blog_1.png" alt=""> -->
+              </div>
+              <div class="blog_details">
+              <!-- isi post -->
+                <h1 class="mb-10"><b>Hasil pencarian: {{$ids}}</b></h1>
+                <br>
+                <div class="form-row">
+                  @if($ada == true)             
+                  <div class="col-md-6">
+                               
+                  @foreach($post as $result)
+                    @if($loop->iteration % 2 == 1)
+                    <div class="col">
+                      <article class="blog_item">
+                        <div class="blog_item_img">
+                          <img class="card-img rounded-0 img-berita" src="/uploads/posts/{{$result->feature_image}}" alt="">
+                          <a href="#" class="blog_item_date">
+                            <h3>{{ substr($result->published_at, 8, 2) }}</h3>
+                            <p>{{ get_bulan($result->published_at) }}</p>
+                          </a>
+                        </div>
+                        <div class="blog_details">
+                          <a class="d-inline-block" href="/post/{{$result->slug}}">
+                            <h2 class="blog-head" style="color: #2d2d2d;">{{$result->title}}</h2>
+                          </a>
+                          <p>{{$result->exercipt}}</p>
+                          <ul class="blog-info-link">
+                            <li><a href="#"><i class="fa fa-user"></i> {{$result->category->name}}</a></li>
+                            <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
+                          </ul>
+                        </div>
+                      </article>    
+                    </div>
+                    @endif
+                  @endforeach
+                  </div>
+                  <div class="col-md-6">
+                               
+                  @foreach($post as $result)
+                    @if($loop->iteration % 2 == 0)
+                    <div class="col">
+                      <article class="blog_item">
+                        <div class="blog_item_img">
+                          <img class="card-img rounded-0 img-berita" src="/uploads/posts/{{$result->feature_image}}" alt="">
+                          <a href="#" class="blog_item_date">
+                            <h3>{{ substr($result->published_at, 8, 2) }}</h3>
+                            <p>{{ get_bulan($result->published_at) }}</p>
+                          </a>
+                        </div>
+                        <div class="blog_details">
+                          <a class="d-inline-block" href="/post/{{$result->slug}}">
+                            <h2 class="blog-head" style="color: #2d2d2d;">{{$result->title}}</h2>
+                          </a>
+                          <p>{{$result->exercipt}}</p>
+                          <ul class="blog-info-link">
+                            <li><a href="#"><i class="fa fa-user"></i> {{$result->category->name}}</a></li>
+                            <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
+                          </ul>
+                        </div>
+                      </article>    
+                    </div>
+                    @endif
+                  @endforeach
+                </div>
+                  @else
+                    <h1>Postingan Belum tersedia</h1>
+                  @endif
+                </div>
+                
+                <div class="float-right">{{ $post->links() }}</div>
+              </div>
+            </div>
+          </div>    
+    @include('page._partials.sidebar')
     
-  </section>
-
 @endsection()
