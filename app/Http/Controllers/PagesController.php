@@ -148,7 +148,7 @@ class PagesController extends Controller
     public function contactstore(Request $request){
         // return $request;
         $contact = ContactUs::create($request->all());
-        return redirect('/#contact')->with('success', 'Your Request Been Sent');
+        return redirect('/contactus')->with('success', 'Your Request Been Sent');
     }
 
     public function kegiatan(){
@@ -180,4 +180,58 @@ class PagesController extends Controller
             return view('page.previewnull', ['posts' => $posts, 'menu' => $menu, 'site' => $site]);
         }
     }
+
+    
+    public function video(){
+        $site = SiteSetting::find(1);
+        $menu = Menu::all();
+        $menuaktif = 'publikasi';
+        $urlchannel = "UCDbqsdODC-H1Pd0MAILsAcQ";
+        $keyapi = "AIzaSyCyxseX1V1eQJQwbhEe7c8OwcFTo7Cy-VE";
+
+        $result = $this->get_CURL('https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id='.$urlchannel.'&key='.$keyapi);
+        // dd($result);
+        $youtubeprofilepicture = $result['items'][0]['snippet']['thumbnails']['medium']['url'];
+        $youtubeprofiletitle = $result['items'][0]['snippet']['title'];
+        $youtubesubscribers = $result['items'][0]['statistics']['subscriberCount'];
+
+        $urllatestvideo = 'https://www.googleapis.com/youtube/v3/search?key='.$keyapi.'&channelId='.$urlchannel.'&maxResults=8&type=video&order=date&part=snippet';
+
+        $result = $this->get_CURL($urllatestvideo);
+        if ($result['items']) {
+            $i=0;
+            foreach ($result['items'] as $hasil) {
+                $urllatestvideos[$i] = $hasil['id']['videoId'];
+                $i++;
+            }
+        }else {
+            $urllatestvideos[0] = "";
+            $urllatestvideos[1] = "";
+        }
+
+        // dd($urllatestvideos);
+        return view('page.video', [
+            'youtubeprofilepicture' => $youtubeprofilepicture, 
+            'youtubeprofiletitle' => $youtubeprofiletitle, 
+            'youtubesubscribers' => $youtubesubscribers, 
+            'urllatestvideos' => $urllatestvideos, 
+            'urlchannel' => $urlchannel, 
+            'latestvid' => $result, 
+            'menu' => $menu, 
+            'menuaktif' => $menuaktif, 
+            'site' => $site]);
+    }
+
+    private function get_CURL($url){
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
+    
+        $result = curl_exec($curl);
+        curl_close($curl);
+    
+        return $result = json_decode($result, true); 
+      }
 }

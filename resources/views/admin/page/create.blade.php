@@ -54,13 +54,16 @@
               <div class="form-group mb-3">
 
                 <label for="content">Content</label>
-                <textarea  rows="14" id="my-editor" name="content" class="form-control"></textarea>
+                <textarea  rows="14" id="my-editor" name="content" class="form-control" placeholder="Masukkan konten halaman"></textarea>
               </div>            
           </div>
           <div class="col-md-5">
               <div class="form-group mb-3">
                 <label for="layouts">Layout</label>
-                <input type="text" name="layouts" class="form-control" value="" placeholder="your layout page">
+                <select name="layouts" id="layouts" class="form-control">
+                  <option>Right Sidebar</option>
+                  <option>No Sidebar</option>
+                </select>
               </div>             
               <div class="form-group mb-3">
                 <label for="title">title</label>
@@ -72,7 +75,7 @@
               </div>             
               <div class="form-group mb-3">
                 <label for="description">Description</label>
-                <textarea name="description" class="form-control">Your page description meta</textarea>
+                <textarea name="description" class="form-control" placeholder="Your page description meta"></textarea>
               </div>              
               <!-- <div class="form-group mb-3">
                 <label for="sumber">Sumber</label>

@@ -57,8 +57,8 @@ function get_bulan($date){
                 <script>
                     function initMap() {
                         var uluru = {
-                            lat: -25.363,
-                            lng: 131.044
+                            lat: -7.1642444,
+                            lng: 111.8785472
                         };
                         var grayStyles = [{
                             featureType: "all",
@@ -79,10 +79,10 @@ function get_bulan($date){
                         ];
                         var map = new google.maps.Map(document.getElementById('map'), {
                             center: {
-                                lat: -31.197,
-                                lng: 150.744
+                                lat: -7.1642444,
+                                lng: 111.8785472
                             },
-                            zoom: 9,
+                            zoom: 18,
                             styles: grayStyles,
                             scrollwheel: false
                         });
@@ -94,7 +94,7 @@ function get_bulan($date){
             </div>
             <div class="row">
                 <div class="col-12">
-                    <h2 class="contact-title">Get in Touch</h2>
+                    <h2 class="contact-title">Hubungi kami</h2>
                     @if(session('success'))
                     <div class="alert alert-success" role="alert">
                       {{ session('success') }}
@@ -107,13 +107,13 @@ function get_bulan($date){
                     @endif
                 </div>
                 <div class="col-lg-8">
-                    <form class="form-contact contact_form" action="/contact" method="post" id="contactForm" novalidate="novalidate">
+                    <form class="form-contact contact_form" action="/contact" method="post">
                       @csrf
-                      <input type="hidden" name="role" value="1">
+                      <input type="hidden" name="role" value="4">
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder=" Enter Message"></textarea>
+                                    <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Masukkan Pesan'" placeholder=" Masukkan Pesan"></textarea>
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -128,12 +128,12 @@ function get_bulan($date){
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
-                                    <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="Masukkan Alamat">
+                                    <input class="form-control" name="address" id="address" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Masukkan Alamat'" placeholder="Masukkan Alamat">
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
-                                    <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="Enter Subject">
+                                    <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Masukkan Nama'" placeholder="Masukkan Nama">
                                 </div>
                             </div>
                         </div>

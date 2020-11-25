@@ -26,7 +26,7 @@ function limit_words($string, $word_limit){
                                 <p data-animation="fadeInUp" data-delay=".4s">Bojonegoro Institute medapat kunjungan dari Norwegia terkait penelitian migas di Bojoengoro</p>
                                 <!-- Hero-btn -->
                                 <div class="hero__btn">
-                                    <a href="industries.html" class="hero-btn mb-10"  data-animation="fadeInUp" data-delay=".8s">Join Us Now</a>
+                                    <a href="/post/kunjungan-norwegia" class="hero-btn mb-10"  data-animation="fadeInUp" data-delay=".8s">Join Us Now</a>
                                 </div>
                             </div>
                         </div>
@@ -43,7 +43,7 @@ function limit_words($string, $word_limit){
                                 <P data-animation="fadeInUp" data-delay=".4s">Sebuah Koalisi organsasi perempuan yang diinisiasi oleh bojonegoro institute, transparency international, Hivos, dan EU</P>
                                 <!-- Hero-btn -->
                                 <div class="hero__btn">
-                                    <a href="industries.html" class="hero-btn mb-10"  data-animation="fadeInUp" data-delay=".8s">Join Us Now</a>
+                                    <a href="/post/speak" class="hero-btn mb-10"  data-animation="fadeInUp" data-delay=".8s">Join Us Now</a>
                                 </div>
                             </div>
                         </div>
@@ -51,16 +51,16 @@ function limit_words($string, $word_limit){
                 </div>
             </div>
             <!-- Single Slider -->
-            <div class="single-slider hero-overly slider-height slider-bg1 d-flex align-items-center">
+            <div class="single-slider hero-overly slider-height slider-bg3 d-flex align-items-center">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-8 col-lg-8 col-md-8 col-sm-10">
                             <div class="hero__caption">
                                 <h1 data-animation="fadeInUp" data-delay=".2s">Sekolah Keterbukaan dan Advokasi (SaKSI)</h1>
-                                <P data-animation="fadeInUp" data-delay=".4s">Provide us a green and healthy life<br> we need to protect </P>
+                                <P data-animation="fadeInUp" data-delay=".4s">Bojonegoro Institute Mengadakan Sekolah Keterbukaan dan Advokasi untuk meningkatkan kapasitas kaum muda Bojonegoro</P>
                                 <!-- Hero-btn -->
                                 <div class="hero__btn">
-                                    <a href="industries.html" class="hero-btn mb-10"  data-animation="fadeInUp" data-delay=".8s">Join Us Now</a>
+                                    <a href="/post/saksi" class="hero-btn mb-10"  data-animation="fadeInUp" data-delay=".8s">Join Us Now</a>
                                 </div>
                             </div>
                         </div>
@@ -88,7 +88,7 @@ function limit_words($string, $word_limit){
         <div class="tailor-details">
             <span>Tentang Kami</span>
             <h2>BOJONEGORO INSTITUTE</h2><p>Bojonegoro institute, adalah organisasi masyarakat sipil atau Civil Society Organization (CSO) yang berdiri pada tanggal 20 Februari 2005. Dengan Akte Notaris Didiek wahju indarta, SH. No 208 Tahun 2005. Selanjutnya didaftarkan pada Badan Kesbanglinmas Bojonegoro pada  tahun 2006.</p>
-            <p class="pera-bottom">Di awal pendiriannya, lembaga ini diharapkan dapat menjadi wakil masyarakat sipil dalam mengawal regulasi/kebijakan  dan pembaharuan tata pemerintahan lokal yang lebih baik, berkelanjutan dan berbasis pada kebutuhan dan keberpihakan pada masyarakat. Dengan mewujudkan kerangka demokratisasi dan desentralisasi, guna menuju relasi antara negara dan masyarakat yang kuat dan bermakna, serta kehidupan masyarakat sipil yang tangguh, semarak, dinamis dan partisipatif. <a href="#"><b>>>Selengkapnya</b></a></p>
+            <p class="pera-bottom">Di awal pendiriannya, lembaga ini diharapkan dapat menjadi wakil masyarakat sipil dalam mengawal regulasi/kebijakan  dan pembaharuan tata pemerintahan lokal yang lebih baik, berkelanjutan dan berbasis pada kebutuhan dan keberpihakan pada masyarakat. Dengan mewujudkan kerangka demokratisasi dan desentralisasi, guna menuju relasi antara negara dan masyarakat yang kuat dan bermakna, serta kehidupan masyarakat sipil yang tangguh, semarak, dinamis dan partisipatif. <a href="/page/profile"><b>>>Selengkapnya</b></a></p>
             <div class="footer-tittles">
             </div>
         </div>

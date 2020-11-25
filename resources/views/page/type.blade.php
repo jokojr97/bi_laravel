@@ -26,7 +26,7 @@ function get_bulan($date){
 
 @section('container')
 
-
+<!-- hero start -->
 <div class="slider-area" style="background-color:rgb(31, 30, 30)">
     <div class="slider-height2 d-flex align-items-center">
     <div class="container">

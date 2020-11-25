@@ -30,6 +30,7 @@ Route::post('/contact', 'PagesController@contactstore')->name('contact.store');
 Route::get('/contactus', 'PagesController@contactus')->name('contact');
 Route::get('/kegiatan/{kegiatan}', 'PagesController@kegiatanpreview')->name('kegiatan.show');
 Route::get('/tag/{tag}', 'PagesController@tagpreview')->name('tag.show');
+Route::get('/video', 'PagesController@video');
 
 Auth::routes();
 

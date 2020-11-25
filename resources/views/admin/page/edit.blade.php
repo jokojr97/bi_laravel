@@ -64,7 +64,10 @@
               </div>             
               <div class="form-group mb-3">
                 <label for="title">title</label>
-                <input type="text" name="title" class="form-control"  value="{{ $page->title }}" placeholder="your title page">
+                <select name="layouts" id="layouts" class="form-control">
+                  <option>Right Sidebar</option>
+                  <option>No Sidebar</option>
+                </select>
               </div>             
               <div class="form-group mb-3">
                 <label for="keywords">Keyword</label>

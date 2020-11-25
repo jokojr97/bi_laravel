@@ -76,18 +76,18 @@
                                         <a class="btn header-btn" id="btnsearch" style="color:white"><span class="fas fa-search" style="color:white"></span> Cari</a>
                                     </div>
                                     <div id="search" class="bg-dark text-white" style="padding: 20px;position:absolute;top:70px;display:none">
-                                        <form>
+                                        <form action="{{ route('searchdata') }}" method="post">
                                           <div class="form-row">
                                             <div class="col-8">
-                                              <input type="text" class="form-control" placeholder="Search" style="padding: 20px 10px;font-size: 16px;">
+                                                @csrf
+                                                <input type="text" class="form-control" placeholder="Search" style="padding: 20px 10px;font-size: 16px;" name="search">
                                             </div>
                                             <div class="col-4">
-                                              <button type="submit" class="btn"><span class="fas fa-search" style="color:white"></span> Cari</button>
+                                                <button type="submit" class="btn"><span class="fas fa-search" style="color:white"></span> Cari</button>
                                             </div>
                                           </div>
                                         </form>
                                     </div>
-
                                 </div>
                             </div> 
                             <!-- Mobile Menu -->
