@@ -68,7 +68,7 @@ function limit_words($string, $word_limit){
                   <td class="text-center">{{ $hasil->typepost->name }}</td>
                   <td class="text-center">{{ $hasil->category->name }}</td>
                   <td class="text-center">
-                    <a href="{{ route('admin.post.show', $hasil->slug) }}" class="btn btn-info btn-sm mt-2" target="_blank"><i class="fas fa-eye"></i></a>
+                    <a href="{{ route('post.show', $hasil->slug) }}" class="btn btn-info btn-sm mt-2" target="_blank"><i class="fas fa-eye"></i></a>
                     <a href="{{ route('admin.post.edit', $hasil->id) }}" class="btn btn-success btn-sm mt-2">Edit</a>
                     <a class="btn btn-danger btn-sm mt-2" href="#" onclick="deletefunc()"> Delete</a>
                     <form method="POST" action="{{ route('admin.post.destroy', $hasil->id) }}" id="del-form" style="display: none;">

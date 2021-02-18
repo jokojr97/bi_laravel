@@ -2364,7 +2364,10 @@ to{-webkit-transform:rotate(360deg)}
 }
 
 .postdetail blockquote {background:#fff;padding:15px 15px 15px 20px;border-left:2px solid}
-
+.postdetail img {
+	width:100%;
+	height:auto;
+}
 .recent-post {
 	width:100px;
 	height: 100px;

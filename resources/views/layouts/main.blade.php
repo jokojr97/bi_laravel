@@ -7,7 +7,7 @@
     <meta content="@yield('metadeskription')" name="descriptison">
     <meta content="@yield('metakeywords')" name="keywords">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="manifest" href="site.webmanifest">
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
     <!-- <link rel="shortcut icon" type="image/x-icon" href="/assets/home1/img/logo.png"> -->
 
     <!-- Favicons -->
